@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/css/hood.css" rel="stylesheet" type="text/css">
+  <title>Simulator</title>
+</head>
+<body>
+    <div class="main">
+      <div class="titleName">
+        <h1 style="font-family: 'Orbitron', sans-serif;"><center>Kitchen Hood</center></h1>
+      </div>
+      <div class="hood">
+        <ul>
+          <div class="hoodUp"></div>
+          <div class="hoodMid"></div>
+          <div class="hoodBottom" content="width=device-width, initial-scale=1">
+            <div class="lights">
+              <div class="fanLight"></div>
+              <div class="lightLight"></div>
+              <div class="delayLight"></div>
+            </div>
+            <div class="timer">
+              <div class="countBox">
+                <center style="font-size: 22px;">
+                  <div class="hoodTimer" style="font-family: 'Orbitron', sans-serif;">00:00</div>
+                </center>
+              </div>
+            </div>
+          </div>
+          <div class="effects">
+            <div class="lightEffects">
+              <div class="lightEffect1"></div>
+              <div class="lightEffect2"></div>
+            </div>
+            <img class="kitchenImg" src="/images/background-of-kitchen-vector-8620309(1).jpg" alt="kitchen">
+          </div>
+        </ul>
+      </div>
+      <div class="downView">
+        <div class="fanAnimation1">
+          <img class="fanimg1" src="/images/360_F_100155650_3vfMj32rKuVqeCaoKlXUU43Dkcblorph(1).jpg" alt="Fan">
+        </div>
+        <div class="downViewLights">
+          <div class="first2Lights">
+            <div class="downViewLight1"><div class="circle1"></div></div>
+            <div class="downViewLight2"><div class="circle2"></div></div>
+          </div>
+          <div class="other2Lights">
+            <div class="downViewLight3"><div class="circle3"></div></div>
+            <div class="downViewLight4"><div class="circle4"></div></div>
+          </div>
+        </div>
+        <div class="fanAnimation2">
+          <img class="fanimg2" src="/images/360_F_100155650_3vfMj32rKuVqeCaoKlXUU43Dkcblorph(1).jpg" alt="Fan">
+        </div>
+      </div>
+
+
+      <div class="command">
+        <div class="fanButtons">
+          <div class="fanSpeed">
+            <a style="font-family: 'Orbitron', sans-serif;"> FAN SPEED:- </a>
+          </div>
+          <div class="fanButtonsGroup">
+            <p class="fanButton0">Stop</p>
+            <p class="fanButton1">Low</p>
+            <p class="fanButton2">Mid</p>
+            <p class="fanButton3">Fast</p>
+            <p class="fanButton4">Boost</p>
+          </div>
+        </div>  
+        <div class="lightButtons">
+          <div class="light">
+            <a style="font-family: 'Orbitron', sans-serif;">LIGHT:- </a>
+          </div>
+          <div class="lightButtonsGroup">
+            <button class="lightButton0">Off</button>
+            <button class="lightButton1">Dim</button>
+            <button class="lightButton2">High</button>
+          </div>      
+        </div>
+        <div class="delayButtons">
+          <div class="delayName">
+            <a style="font-family: 'Orbitron', sans-serif;">DELAY MODE:-</a>
+          </div>
+          <div class="delayButtonsGroup">
+            <button class="delayButton0">Off</button>
+            <button class="delayButton1">On</button>
+          </div> 
+        </div>
+        <div class="timerButtons">
+          <div class="timerName">
+            <a style="font-family: 'Orbitron', sans-serif;">TIMER:- </a>
+          </div>
+          <div class="timerBox">
+            <div class="inputBox">
+              <input type="number" class="inputHour" style="font-size:22px ;" max="12" min="0" value="0">
+              <div class="dotColon1">:</div>
+              <input type="number" class="inputMin" style="font-size:22px ;" max="59" min="0" value="0">
+              <div class="dotColon2">:</div>                  
+              <input type="number" class="inputSec" style="font-size:22px ;" max="59" min="0" value="0">
+            </div>
+            <div class="startButtons">
+              <button class="start">Start</button>
+              <button class="reset">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="text/javascript" src="/javascript/hood.js"></script>
+    <script type="text/javascript" src="/javascript/hood_functions.js"></script>
+
+    <script type="text/javascript">
+      var gatewayAccessToken = '<%= gatewayAccessToken %>'; //EJS syntax to retrieve the param passed to this page    
+      
+      setup(gatewayAccessToken);
+    </script>
+</body>
+</html>

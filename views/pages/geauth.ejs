@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/css/geauth.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<script src="/javascript/geauth.js" type="text/javascript"></script>
+
+<div class="loader"></div>
+
+<script type="text/javascript">
+  var token = '<%= accessToken %>'; //EJS syntax to retrieve the param passed to this page    
+  console.log("Access token: " + token);
+
+  authenticateWithSmartHQ(token)
+    .then((returnValue) => {
+      var gatewayAccessToken = returnValue;
+
+      if (gatewayAccessToken == null)
+      {
+        alert("Notify administrator!");
+      }
+      else
+      {
+        console.log("Gateway access token: " + gatewayAccessToken);
+        window.location.href = "/hood/" + gatewayAccessToken;
+      }
+    });
+</script>
+
+
+</body>
+
+</html>

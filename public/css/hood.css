@@ -1,0 +1,628 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(131, 162, 164);
+}
+
+.main {
+  width: 1170px;
+  margin: 2% auto;
+  display: flex;
+}
+
+.titleName {
+  float: top;
+  height: 200px;
+  width: 77%;
+  margin-left: 0;
+  position: absolute;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: large;
+  object-position: center;
+}
+
+
+
+/*----------------------------------------Hood Down View --------------------------------------------------*/
+
+.downView {
+  height: 150px;
+  width: 440px;
+  margin: 320px 855px;
+  border: 1px solid rgb(232, 226, 226);
+  position: absolute;
+  object-position: right;
+  background-color: #282525;
+  border-radius: 10% 10% 10% 10%;
+  display: inline-flex;
+  border: 1px solid white;
+  opacity: 0.65;
+}
+
+.fanAnimation1 {
+  height: 100px;
+  width: 100px;
+  clip-path: circle(50% at 50% 50%);
+  margin: 25px 0px 25px 22px;
+  position: relative;
+}
+.fanAnimation2 {
+  height: 100px;
+  width: 100px;
+  margin: 25px 22px 25px 0px;
+  clip-path: circle(50% at 50% 50%);
+  float: right;
+  margin-left: none;
+}
+.fanimg1, .fanimg2 {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  animation-play-state: running;
+  position: relative;
+}
+
+.downViewLights {
+  height: 100%;
+  width: 192px; 
+  display: inline-flex;
+}
+.first2Lights {
+  height: 100%;
+  width: 50%;
+}
+.downViewLight1 {
+  height: 30px;
+  width: 30px;
+  background: radial-gradient(rgb(48, 47, 47),rgb(96, 92, 92));
+  margin-top: 10%;
+  clip-path: circle(50% at 50% 50%);
+  position: relative;
+}
+.circle1 {
+  height: 25px;
+  width: 25px;
+  top: 2.5px;
+  left: 2.5px;
+  clip-path: circle(50% at 50% 50%);
+  position: absolute;
+  object-position: center;
+}
+.downViewLight2 {
+  height: 30px;
+  width: 30px;
+  top: 70px;
+  background: radial-gradient(rgb(48, 47, 47),rgb(96, 92, 92));
+  clip-path: circle(50% at 50% 50%);
+  position: relative;
+}
+.circle2 {
+  height: 25px;
+  width: 25px;
+  top: 2.5px;
+  left: 2.5px;
+  clip-path: circle(50% at 50% 50%);
+  object-position: center;
+  position: absolute;
+}
+.other2Lights {
+  height: 100%;
+  width: 50%;
+}
+.downViewLight3 {
+  height: 30px;
+  width: 30px;
+  margin-top: 10%;
+  clip-path: circle(50% at 50% 50%);
+  background: radial-gradient(rgb(48, 47, 47),rgb(96, 92, 92));
+  margin-left: 70px;
+  position: relative;
+}
+.circle3 {
+  height: 25px;
+  width: 25px;
+  top: 2.5px;
+  left: 2.5px;
+  clip-path: circle(50% at 50% 50%);
+  object-position: center;
+  position: absolute;
+}
+.downViewLight4 {
+  height: 30px;
+  width: 30px;
+  clip-path: circle(50% at 50% 50%);
+  background: radial-gradient(rgb(48, 47, 47),rgb(96, 92, 92));
+  margin-top: 71px;
+  margin-left: 70px;
+  position: relative;
+}
+.circle4 {
+  height: 25px;
+  width: 25px;
+  top: 2.5px;
+  left: 2.5px;
+  clip-path: circle(50% at 50% 50%);
+  position:absolute;
+}
+
+
+/*----------------------------------------------------Main Hood Styles--------------------------------------*/
+
+.hood {
+  height: 770px;
+  width: 550px;
+  float: left;
+  position: relative;
+  margin: 80px 300px;
+}
+
+.hoodUp {
+  height: 170px;
+  width: 180px;
+  margin: 10px 188px;
+  position: relative;
+  object-position: center;
+  background-color: #313B3F;
+  margin-bottom: 0;
+  border-bottom: 4px solid black;
+  opacity: 0.65;
+  border-radius: 5% 5% 2.5% 2.5%;
+}
+
+.hoodMid {
+  border-bottom: 160px solid #313B3F;
+  /*border-bottom: 160px solid #8d9192;*/
+	border-left: 130px solid transparent;
+  border-right: 130px solid transparent;
+	height: 0;
+	width: 440px;
+  opacity: 0.65;
+  margin: 0 58px;
+  margin-top: 0;
+  border-radius: 5% 5% 1% 1%;
+}
+
+.hoodBottom {
+  height: 50px;
+  width: 440px;
+  margin: 0 57px;
+  background-color: #575D5F;
+  border-top: 1px solid black;
+  border-bottom: 4px solid black;
+  border-radius: 0% 0% 10% 10%;
+  opacity: 0.65;
+  overflow: hidden;
+  display: flex;
+}
+
+.lights {
+  height: 30px;
+  width: 200px;
+  background-color: #575D5F;
+  display: flex;
+}
+
+.fanLight {
+  height: 20px;
+  width: 20px;
+  background-color: #F71010;
+  border-radius: 50%;
+  margin: 12px 10px;
+  margin-left: 25px;
+}
+
+.lightLight {
+  height: 20px;
+  width: 20px;
+  background-color: #F71010;
+  border-radius: 50%;
+  margin: 12px 15px;
+  margin-left: 10px;
+}
+
+.delayLight {
+  height: 20px;
+  width: 20px;
+  background-color: #F71010;
+  border-radius: 50%;
+  margin: 12px 20px;
+  margin-left: 10px;
+}
+ 
+.timer {
+  height: 30px;
+  width: 110px;
+  background-color: white;
+  margin: 10px 60px;
+  align-content: center;
+}
+
+.hoodTimer {
+  font-weight: bolder;
+  color: rgb(98, 108, 121);
+}
+
+.countBox {
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+  font-family: 'Orbitron', sans-serif;
+}
+
+
+
+/*------------------------------------------------------------Light Effect Under Hood-------------------------------------------------*/
+
+.effects {
+  height: 360px;
+  width: 440px;
+  margin-left: 57px;
+}
+
+.lightEffects{
+  height: 180px;
+  width: 100%;
+  display: flex;
+}
+
+.kitchenImg {
+  position: relative;
+  height: 600px;
+  width: 1350px;
+  bottom: 180px;
+  left: 177px;
+  margin: 0;
+  opacity: 0.35;
+  transform: translateX(-50%);
+}
+
+.lightEffect1 {
+  height: 250px;
+  width: 200px;
+  position: relative;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: '';
+  float: left;
+}
+
+/*
+.afterDim1 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: rgb(149, 144, 144);
+  float: left;
+}
+.afterHigh1 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color:white;
+  float: left;
+}
+*/
+
+.lightEffect2 {
+  height: 250px;
+  width: 200px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: '';
+  float: right;
+  left: 50px;
+  position: relative;
+}
+
+/*
+.afterDim2 {
+  height: 100%;
+  width: 100%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: rgb(138, 132, 132);
+  position: relative;
+}
+.afterHigh2 {
+  height: 100%;
+  width: 100%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: white;
+  float: right;
+  position: relative;
+}
+*/
+
+/*------------------------------------------------Command Buttons---------------------------------------------------------*/
+
+.command {
+  height: 600px;
+  width: 600px;
+  margin: 80px -120px;
+  object-position: left;
+  position: absolute;
+}
+
+.fanButtons {
+  height: 100px;
+  width: 100%;
+  display: flex;
+}
+
+.fanSpeed {
+  height: 20px;
+  width: 20%;
+  position: relative;
+  text-align: center;
+  object-position: center;
+  margin: 40px 10px;
+}
+
+.fanButtonBox {
+  height: 50px;
+  width: 300px;
+  margin: 25px 25px;
+  position: relative;
+}
+.fanButtonsGroup {
+  height: 50px;
+  width: 550px;
+  margin: 25px 25px;
+  position: relative;
+  display: inline-flex;
+  border-radius: 4px;
+  overflow: hidden;
+  text-align: center;
+}
+.fanButtonsGroup p{
+  padding: 14px 16px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border-right: 1px solid #cccccc;
+  background: #eeeeee;
+  font-family: "Inter", sans-serif;
+  margin-left: 10px;
+  box-shadow: 2px 2px 2px;
+}
+.fanButtonsGroup p:hover {
+  background: #dddddd;
+}
+.fanButtonsGroup p:active{
+  box-shadow: inset 2px 2px 5px white;
+}
+
+.fanButton0, .fanButton1, .fanButton2, .fanButton3, .fanButton4 {
+  animation: rotate linear infinite;
+  animation-play-state: running;
+}
+@keyframes rotate {
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+
+.lightButtons {
+  height: 100px;
+  width: 100%;
+  display: flex;
+}
+
+.light {
+  height: 20px;
+  width: 15%;
+  position: absolute;
+  text-align: center;
+  object-position: center;
+  margin: 40px 10px;
+}
+
+.lightButtonsGroup {
+  height: 50px;
+  width: 330px;
+  margin: auto;
+  position: relative;
+  display: inline-flex;
+  left: 3px;
+  overflow: hidden;
+}
+.lightButtonsGroup button{
+  padding: 14px 16px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  border-right: 1px solid #cccccc;
+  background: #eeeeee;
+  font-family: "Inter", sans-serif;
+  margin-left: 10px;
+  box-shadow: 2px 2px 2px;
+}
+.lightButtonsGroup button:hover {
+  background: #dddddd;
+}
+.lightButtonsGroup button:active{
+  box-shadow: inset 2px 2px 5px white;
+}
+.lightButton0, .lightButton1, .lightButton2 {
+  animation-play-state: running;
+}
+
+
+.delayButtons {
+  height: 100px;
+  width: 100%;
+  display: flex;
+}
+
+.delayName {
+  height: 40px;
+  width: 20%;
+  position: relative;
+  text-align: center;
+  object-position: center;
+  margin: 40px 10px;
+}
+
+.delayButtonsGroup {
+  height: 50px;
+  width: 50%;
+  margin: 30px 0px;
+  position: relative;
+  display: inline-flex;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.delayButtonsGroup button{
+  padding: 14px 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border-right: 1px solid #cccccc;
+  background: #eeeeee;
+  font-family: "Inter", sans-serif;
+  margin-left: 10px;
+  box-shadow: 2px 2px 2px;
+}
+.delayButtonsGroup button:hover {
+  background: #dddddd;
+}
+.delayButtonsGroup button:active{
+  box-shadow: inset 2px 2px 5px white;
+}
+
+.delayTime {
+  width: auto;
+  height: 100%;
+  border: 1px solid black;
+  font-family: 'Orbitron', sans-serif;
+  margin-left: 10px;
+  background-color: rgba(194, 184, 184, 0.9);
+  box-shadow: 2px 2px 2px  #484747;
+}
+
+.startButtons {
+  height: 50px;
+  width: 60%;
+  position: relative;
+  display: inline-flex;
+  border-radius: 4px;
+  overflow: hidden;
+  right: 40px;
+}
+.timerButtons button{
+  padding: 14px 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border-right: 1px solid #cccccc;
+  background: #eeeeee;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  margin-left: 5px;
+  box-shadow: 2px 2px 2px;
+}
+.timerButtons button:hover {
+  background: #dddddd;
+}
+.timerButtons button:active{
+  box-shadow: inset 2px 2px 5px white;
+}
+
+.timerButtons {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.timerName {
+  height: 20px;
+  width: 30%;
+  position: relative;
+  text-align: center;
+  object-position: center;
+  margin: 40px 0;
+  margin-left: -15px;
+}
+
+
+/*-----------------------------------count down---------------------------------------------*/
+
+.timerBox {
+  height: 50px;
+  width: 400px;
+  margin: 25px -20px;
+  position: relative;
+  display: flex;
+} 
+
+.inputBox {
+  height: 100%;
+  width: 45%;
+  display: inline-flex;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.inputHour {
+  height: 100%;
+  width: 40%;
+  font-family: 'Orbitron', sans-serif;
+  margin-left: 0px;
+  background-color: rgba(194, 184, 184, 0.9);
+}
+
+.dotColon1 {
+  height: 100%;
+  width: 10px;
+  align-items: center;
+  justify-content: center;
+  object-position: center;
+  margin-top: -7px;
+  font-size: 45px;
+}
+
+.inputMin {
+  height: 100%;
+  width: 44%;
+  font-family: 'Orbitron', sans-serif;
+  background-color: rgb(194, 184, 184, 0.9);
+}
+
+.dotColon2 {
+  height: 100%;
+  width: 10px;
+  align-items: center;
+  justify-content: center;
+  object-position: center;
+  margin-top: -7px;
+  font-size: 45px;
+}
+
+.inputSec {
+  height: 100%;
+  width: 44%;
+  font-family: 'Orbitron', sans-serif;
+  background-color: rgb(194, 184, 184, 0.9);
+}
+
+.startButtons {
+  height: 100%;
+  width: 50%;
+  margin-left: 50px;
+}
+
+
+
+
+
