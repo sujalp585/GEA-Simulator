@@ -1,6 +1,13 @@
 async function authenticateWithSmartHQ(accessToken)
 {
-  var bearerToken = accessToken; //oauth access token
+  if (accessToken == null || accessToken == undefined)
+  {
+    alert("OAuth access token cannot be null/undefined!");
+    return null;
+  }
+
+  //Use the OAuth access token (bearer token) to perform the GE-specific auth stuff
+  var bearerToken = accessToken;
   var userId = null;
   var gatewayProvisioningToken = null;
   var gatewayAccessToken = null;

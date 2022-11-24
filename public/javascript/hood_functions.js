@@ -1,4 +1,64 @@
+let socket = null;
+
 async function setup(gatewayAccessToken)
+{
+  const myHeaders = new Headers();
+  myHeaders.append('Host', 'device.mysmarthq.com')
+  myHeaders.append('Authorization', gatewayAccessToken);
+
+  let response = await fetch('https://device-fld.mysmarthq.com/v2/websocket', 
+  {
+    method: 'GET',
+    headers: myHeaders
+  });
+
+  if(response.ok)
+  {
+    let response_data = await response.json();
+    console.log(response_data);
+
+    if(response_data.success == "false")
+    {
+      alert("Socket setup failed!");
+      return;
+    }
+    else
+    {
+      console.log("Socket setup success");
+      alert("Socket setup success! " + response_data.endpoint);
+      socket = new WebSocket(response_data.endpoint);
+
+      socket.onopen = function(e) {
+        alert("Socket is open");
+      };
+      
+      socket.onmessage = function(event) {
+        alert(`Socket message received ${event.data}`);
+      };
+      
+      socket.onclose = function(event) {
+        if (event.wasClean) {
+          alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+        } else {
+          // e.g. server process killed or network down
+          // event.code is usually 1006 in this case
+          alert('[close] Connection died');
+        }
+      };
+      
+      socket.onerror = function(error) {
+        alert(`[error]`);
+      };
+    }
+  }
+  else
+  {
+    alert("HTTP Error (socket setup): " + response.status);
+    return;
+  }
+}
+
+/*async function setup(gatewayAccessToken)
 {
   //process: gateway sync -> register device presence
 
@@ -8,90 +68,54 @@ async function setup(gatewayAccessToken)
   myHeaders.append('Authorization', gatewayAccessToken);
   myHeaders.append('Content-Type', 'application/json');
 
-  let data = {
-    "devices": [{
-     "deviceType": "cloud.smarthq.device.hood",
-     "defaultNickname": "Hood",
-     "updId": "D828C9000000",
-     "macAddress": "D828C9000000",
-     "cookie": {
-      "applianceId": "D828C9000000",
-      "deviceCategory": "APPLIANCE",
-      "userId": "abcdefghijklmno"
-     },
-     "defaultIcon": "cloud.smarthq.icon.hood",
-     "removable": true,
-     "model": "ABC123",
-     "services": [
-      {
-       "serviceType": "cloud.smarthq.service.mode",
-       "domainType": "cloud.smarthq.domain.brightness",
-       "supportedCommands": ["cloud.smarthq.command.mode.set"],
-       "serviceId": "1bb051964bd9c5dca58a",
-       "serviceDeviceType": "cloud.smarthq.device.hood.light",
-       "config": {
-        "ordered": true,
-        "supportedModes": [
-         "cloud.smarthq.type.mode.off",
-         "cloud.smarthq.type.mode.dim",
-         "cloud.smarthq.type.mode.high"
-        ]
-       }
-      },
-      {
-       "serviceType": "cloud.smarthq.service.firmware.v1",
-       "domainType": "cloud.smarthq.domain.firmware",
-       "supportedCommands": ["cloud.smarthq.command.firmware.v1.upgrade"],
-       "serviceId": "620df6ba3c1a4b8f1fb5",
-       "serviceDeviceType": "cloud.smarthq.device.wifi",
-       "config": {}
-      },
-      {
-       "serviceType": "cloud.smarthq.service.mode",
-       "domainType": "cloud.smarthq.domain.speed",
-       "supportedCommands": ["cloud.smarthq.command.mode.set"],
-       "serviceId": "c8287e53df2909c50fe3",
-       "serviceDeviceType": "cloud.smarthq.device.hood.fan",
-       "config": {
-        "ordered": true,
-        "supportedModes": [
-         "cloud.smarthq.type.mode.off",
-         "cloud.smarthq.type.mode.low",
-         "cloud.smarthq.type.mode.medium",
-         "cloud.smarthq.type.mode.high",
-         "cloud.smarthq.type.mode.boost"
-        ]
-       }
-      },
-      {
-       "serviceType": "cloud.smarthq.service.firmware.v1",
-       "domainType": "cloud.smarthq.domain.firmware",
-       "supportedCommands": ["cloud.smarthq.command.firmware.v1.upgrade"],
-       "serviceId": "db3b5203c7557975aed9",
-       "serviceDeviceType": "cloud.smarthq.device.appliance",
-       "config": {}
-      },
-      {
-        "serviceType": "cloud.smarthq.service.toggle",
-        "domainType": "cloud.smarthq.domain.delay.off",
-        "supportedCommands": [ "cloud.smarthq.command.toggle.set" ],
-        "state": {"on": "false"},
-        "serviceId": "cf502bc1c13eb48ba2e6586c5cec03b646de3910744008231a8a18232f8faa3c",
-        "serviceDeviceType": "cloud.smarthq.device.fan",
-        "config": {}
-      }
-     ],
-     "deviceId": "123456789",
-     "connectionType": "cloud.smarthq.connection.wifi"
-    }],
-    "kind": "gateway#sync",
-    "gateway": {
-     "serial": "abcdefghijklmno",
-     "model": "BrillionAdapter",
-     "version": "1.0",
-     "gatewayId": "abcdefghijklmno"
+ let data = {
+  "devices": [{
+   "deviceType": "cloud.smarthq.device.hood",
+   "removable": true,
+   "deviceId": "123456789",
+   "services": [
+    {
+     "serviceType": "cloud.smarthq.service.mode",
+     "domainType": "cloud.smarthq.domain.brightness",
+     "supportedCommands": ["cloud.smarthq.command.mode.set"],
+     "serviceId": "1bb051964bd9c5dca58a",
+     "serviceDeviceType": "cloud.smarthq.device.hood.light",
+     "config": {
+      "ordered": true,
+      "supportedModes": [
+       "cloud.smarthq.type.mode.off",
+       "cloud.smarthq.type.mode.dim",
+       "cloud.smarthq.type.mode.high"
+      ]
+     }
+    },
+    {
+     "serviceType": "cloud.smarthq.service.mode",
+     "domainType": "cloud.smarthq.domain.speed",
+     "supportedCommands": ["cloud.smarthq.command.mode.set"],
+     "serviceId": "c8287e53df2909c50fe3",
+     "serviceDeviceType": "cloud.smarthq.device.hood.fan",
+     "config": {
+      "ordered": true,
+      "supportedModes": [
+       "cloud.smarthq.type.mode.off",
+       "cloud.smarthq.type.mode.low",
+       "cloud.smarthq.type.mode.medium",
+       "cloud.smarthq.type.mode.high",
+       "cloud.smarthq.type.mode.boost"
+      ]
+     }
     }
-   };
+   ]
+  }],
+  "kind": "gateway#sync",
+  "gateway": {
+   "serial": "SERIAL",
+   "model": "GatewaySimulator",
+   "version": "VERSION",
+   "gatewayId": "rt9e83niwhgp2s2Simulator"
+  }
+ };
 
   let response = await fetch('https://device-fld.mysmarthq.com/v2/gateway', 
   {
@@ -154,7 +178,7 @@ async function setup(gatewayAccessToken)
   {
     alert("HTTP Error (RegisterDevice): " + response.status);
   }
-}
+}*/
 
 
 var global_light_state = "cloud.smarthq.type.mode.off";

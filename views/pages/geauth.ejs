@@ -12,10 +12,10 @@
 <div class="loader"></div>
 
 <script type="text/javascript">
-  var token = '<%= accessToken %>'; //EJS syntax to retrieve the param passed to this page    
-  console.log("Access token: " + token);
+  var authAccessToken = '<%= authAccessToken %>'; //EJS syntax to retrieve the param passed to this page    
+  console.log("Auth access token passed to GEAuth page: " + authAccessToken);
 
-  authenticateWithSmartHQ(token)
+  authenticateWithSmartHQ(authAccessToken)
     .then((returnValue) => {
       var gatewayAccessToken = returnValue;
 
@@ -25,8 +25,8 @@
       }
       else
       {
-        console.log("Gateway access token: " + gatewayAccessToken);
-        window.location.href = "/hood/" + gatewayAccessToken;
+        console.log("Gateway access token obtained: " + gatewayAccessToken);
+        window.location.href = "/hood" + "?gatewayAccessToken=" + gatewayAccessToken;
       }
     });
 </script>
